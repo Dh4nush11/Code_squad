@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Management System</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a {
+            background-color: #f4f4f4;
+            border-radius: 2px;
+            padding: 5px 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Hero Section */
+        .hero-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bgimage {
+            width: 100%;
+            height: 50vh;
+            background-image: url(https://shorturl.at/aII9F);
+            background-size: cover;
+            background-position: center;
+            filter: opacity(50%);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        /* Form Styles */
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #333333;
+        }
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Dashboard Sections */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000000;
+            color: #fff;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Hide sections by default */
+        main {
+            display: none;
+        }
+
+        main#home {
+            display: block;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero-container,
+            .about-container {
+                flex-direction: column;
+            }
+
+            main {
+                width: 95%;
+                padding: 10px;
+            }
+
+            .bgimage {
+                height: 30vh;
+            }
+        }
+
+        /* Mobile Specific Styles */
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .hero-text, 
+            .about-text {
+                text-align: center;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Internship Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="home" class="active">Home</a></li>
+                    <li><a href="#" data-section="register">Register</a></li>
+                    <li><a href="#" data-section="mentor-dashboard">Mentor Dashboard</a></li>
+                    <li><a href="#" data-section="coordinator-dashboard">Coordinator Dashboard</a></li>
+                    <li><a href="#" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <div class="bgimage"></div>
+        
+        <div class="hero-container">
+            <div class="hero-text">
+                <h2>Welcome to the Internship Management System</h2>
+                <p>
+                    Welcome to Internship Management System,
+                    your one-stop platform for internship management.
+                    We connect students, recent graduates, and employers 
+                    to create meaningful internship experiences.
+                    Browse our extensive database of internships, 
+                    apply with ease, and kickstart your career today!
+                </p>
+                <a href="#" data-section="register" class="cta-button">Get Started</a>
+            </div>
+        </div>
+
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://shorturl.at/6ub1s" alt="About Us" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>
+                    Internship Management System is a cutting-edge platform designed to simplify the internship process.
+                    Our platform streamlines internship postings, applications, and management for employers, 
+                    while providing students with a user-friendly interface to explore and apply for internships.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <main id="register">
+        <h2>Register for Internship</h2>
+        <form>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+            
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required>
+            
+            <label for="companyAddress">Company Address:</label>
+            <input type="text" id="companyAddress" name="companyAddress" required>
+            
+            <label for="externalMentorName">External Mentor Name:</label>
+            <input type="text" id="externalMentorName" name="externalMentorName" required>
+            
+            <label for="externalMentorContact">External Mentor Contact Number:</label>
+            <input type="tel" id="externalMentorContact" name="externalMentorContact" required>
+            
+            <label for="externalMentorEmail">External Mentor Email:</label>
+            <input type="email" id="externalMentorEmail" name="externalMentorEmail" required>
+            
+            <label for="companyRegNumber">Company Registration Number:</label>
+            <input type="text" id="companyRegNumber" name="companyRegNumber" required>
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="stipend">Stipend Amount:</label>
+            <input type="number" id="stipend" name="stipend" required>
+            
+            <label for="offerLetter">Offer Letter:</label>
+            <input type="file" id="offerLetter" name="offerLetter" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <main id="mentor-dashboard">
+        <h2>Mentor Dashboard</h2>
+        <form>
+            <label for="report">Fortnightly Report:</label>
+            <textarea id="report" name="report" required></textarea>
+            
+            <label for="assignment">Monthly Assignment:</label>
+            <textarea id="assignment" name="assignment" required></textarea>
+            
+            <label for="evaluation">Industry Mentor Evaluation:</label>
+            <textarea id="evaluation" name="evaluation" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <main id="coordinator-dashboard">
+        <h2>Coordinator Dashboard</h2>
+        <div class="section">
+            <h3>Coordinator Actions</h3>
+            <ul>
+                <li>View and verify intern progress</li>
+                <li>Assign internal mentors to interns</li>
+                <li>Generate and manage reports</li>
+                <li>CRUD operations for intern records</li>
+                <li>Communicate with mentors and interns</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Reports and Analytics</h3>
+            <p>Access detailed reports and analytics to track the progress and performance of interns.</p>
+            <ul>
+                <li>Intern performance reports</li>
+                <li>Compliance status</li>
+                <li>Completion rates</li>
+                <li>Feedback summaries</li>
+            </ul>
+        </div>
+    </main>
+
+    <main id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Internship Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav ul li a, .cta-button');
+            const mainSections = document.querySelectorAll('main');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    mainSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.style.display = 'block';
+                        window.scrollTo(0, 0);
+                    }
+
+                    document.querySelectorAll('nav ul li a').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
