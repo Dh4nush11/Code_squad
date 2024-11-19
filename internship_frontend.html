@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Management System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 5px 0; /* Made the footer smaller */
+            background-color: #000000;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 0.75em; /* Adjusted font size */
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #333333;
+        }
+
+        h1, h2 {
+            font-family: 'Georgia', serif;
+        }
+
+        h2 {
+            border-bottom: 2px solid #000000;
+            padding-bottom: 5px;
+        }
+
+        main#register, main#mentor-dashboard, main#coordinator-dashboard, main#contact {
+            display: none;
+        }
+
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Internship Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                <li><a href="#register" onclick="showSection('register')">Register</a></li>
+                <li><a href="#mentor-dashboard" onclick="showSection('mentor-dashboard')">Mentor Dashboard</a></li>
+                <li><a href="#coordinator-dashboard" onclick="showSection('coordinator-dashboard')">Coordinator Dashboard</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <h2>Welcome to the Internship Management System</h2>
+        <p>Streamline and simplify your internship process with our all-in-one solution.</p>
+        <a href="#register" class="cta-button" onclick="showSection('register')">Get Started</a>
+    </main>
+
+    <main id="register">
+        <h2>Register for Internship</h2>
+        <form>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+            
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required>
+            
+            <label for="companyAddress">Company Address:</label>
+            <input type="text" id="companyAddress" name="companyAddress" required>
+            
+            <label for="externalMentorName">External Mentor Name:</label>
+            <input type="text" id="externalMentorName" name="externalMentorName" required>
+            
+            <label for="externalMentorContact">External Mentor Contact Number:</label>
+            <input type="tel" id="externalMentorContact" name="externalMentorContact" required>
+            
+            <label for="externalMentorEmail">External Mentor Email:</label>
+            <input type="email" id="externalMentorEmail" name="externalMentorEmail" required>
+            
+            <label for="companyRegNumber">Company Registration Number:</label>
+            <input type="text" id="companyRegNumber" name="companyRegNumber" required>
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="stipend">Stipend Amount:</label>
+            <input type="number" id="stipend" name="stipend" required>
+            
+            <label for="offerLetter">Offer Letter:</label>
+            <input type="file" id="offerLetter" name="offerLetter" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <main id="mentor-dashboard">
+        <h2>Mentor Dashboard</h2>
+        <form>
+            <label for="report">Fortnightly Report:</label>
+            <textarea id="report" name="report" required></textarea>
+            
+            <label for="assignment">Monthly Assignment:</label>
+            <textarea id="assignment" name="assignment" required></textarea>
+            
+            <label for="evaluation">Industry Mentor Evaluation:</label>
+            <textarea id="evaluation" name="evaluation" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <main id="coordinator-dashboard">
+        <h2>Coordinator Dashboard</h2>
+        <p>Monitor and manage intern progress, assign mentors, and ensure compliance with internship requirements.</p>
+        <div class="section">
+            <h3>Coordinator Actions</h3>
+            <ul>
+                <li>View and verify intern progress</li>
+                <li>Assign internal mentors to interns</li>
+                <li>Generate and manage reports</li>
+                <li>CRUD operations for intern records</li>
+                <li>Communicate with mentors and interns</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Reports and Analytics</h3>
+            <p>Access detailed reports and analytics to track the progress and performance of interns.</p>
+            <ul>
+                <li>Intern performance reports</li>
+                <li>Compliance status</li>
+                <li>Completion rates</li>
+                <li>Feedback summaries</li>
+            </ul>
+        </div>
+    </main>
+
+    <main id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Internship Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('main').forEach((main) => {
+                main.style.display = 'none';
+            });
+            document.getElementById(section).style.display = 'block';
+            document.querySelectorAll('nav ul li a').forEach((link) => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`nav ul li a[href="#${section}"]`).classList.add('active');
+        }
+        
+        // Show the home section by default
+        showSection('home');
+    </script>
+</body>
+</html>
