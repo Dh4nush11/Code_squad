@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Internship Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="card">
+                <h3>Intern Details</h3>
+                <form>
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" placeholder="Enter company name" required>
+
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" required>
+
+                    <label for="externalMentor">External Mentor Name:</label>
+                    <input type="text" id="externalMentor" placeholder="Enter mentor name" required>
+
+                    <label for="contact">External Mentor Contact:</label>
+                    <input type="text" id="contact" placeholder="Enter contact number" required>
+
+                    <label for="offerLetter">Upload Offer Letter:</label>
+                    <input type="file" id="offerLetter" required>
+
+                    <button type="submit">Submit Details</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports">
+            <h2>Reports</h2>
+            <div class="card">
+                <h3>Upload Fortnightly Report</h3>
+                <form>
+                    <label for="fortnightReport">Upload Report:</label>
+                    <input type="file" id="fortnightReport" required>
+                    <button type="submit">Submit Report</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress">
+            <h2>Progress Tracking</h2>
+            <div class="card">
+                <p>Track your report submissions and evaluations here.</p>
+                <ul>
+                    <li>Fortnightly Report: <span class="status">Pending</span></li>
+                    <li>Assignment: <span class="status">In Progress</span></li>
+                    <li>Final Evaluation: <span class="status">Not Started</span></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2024 Internship Management System | Contact: ims_support@university.com</p>
+    </footer>
+</body>
+</html>
